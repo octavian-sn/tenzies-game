@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import Die from './components/Die';
+import uniqid from 'uniqid';
 
 function App() {
+  const [numbers, setNumbers] = React.useState(renderDice());
+
+  function renderDice() {
+    const numbers = [];
+    for (let i = 0; i < 10; i++) {
+      numbers.push(Math.floor(Math.random() * (6 - 1 + 1) + 1));
+    }
+    return numbers;
+  }
+
+  const dices = numbers.map((number) => <Die value={number} key={uniqid()} />);
+
   return (
     <div id="project">
       <main>
-        <div className="dice-container">
-          <Die value="1" />
-          <Die value="2" />
-          <Die value="3" />
-          <Die value="4" />
-          <Die value="5" />
-          <Die value="6" />
-          <Die value="7" />
-          <Die value="8" />
-          <Die value="9" />
-          <Die value="10" />
-        </div>
+        <div className="dice-container">{dices}</div>
       </main>
       ;
     </div>
