@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-class App extends Component {
-  render() {
-    return <div>Just a div</div>;
-  }
+function App() {
+  return (
+    <div id="project">
+      <main>yes</main>;
+    </div>
+  );
 }
 
 export default App;
