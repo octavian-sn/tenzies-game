@@ -19,8 +19,8 @@ function App() {
     <div id="project">
       <main>
         <div className="dice-container">{dices}</div>
+        <button onClick={() => setNumbers(renderDice())}>Roll</button>
       </main>
-      ;
     </div>
   );
 }
