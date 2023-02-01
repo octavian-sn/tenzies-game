@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-function Score({ rolls, time, bestRolls, bestTime }) {
+function Score(props) {
   return (
     <div className="score">
       <div className="score--titles">
@@ -8,8 +8,8 @@ function Score({ rolls, time, bestRolls, bestTime }) {
         <div>BEST Time / Rolls:</div>
       </div>
       <div className="score--time">
-        <div className="result">{`${time} / ${rolls}`}</div>
-        <div className="result">{`12:34:57 / 03`}</div>
+        <div className="result">{`${props.counter.minutes}:${props.counter.seconds} / ${props.rolls}`}</div>
+        <div className="result">{`0:0 / 0`}</div>
       </div>
     </div>
   );

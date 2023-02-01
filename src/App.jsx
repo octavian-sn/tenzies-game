@@ -8,9 +8,10 @@ import Score from './components/Score';
 function App() {
   const [numbers, setNumbers] = React.useState(renderDice());
   const [tenzies, setTenzies] = React.useState(false);
-  const [score, setScore] = React.useState({
-    rolls: 0,
-    time: '00:00:00',
+  const [rolls, setRolls] = React.useState(0);
+  const [counter, setCounter] = React.useState({
+    minutes: 0,
+    seconds: 0,
   });
 
   React.useEffect(() => {
@@ -23,6 +24,22 @@ function App() {
       console.log('you won');
     }
   }, [numbers]);
+
+  // React.useEffect(() => {
+  //   setTimeout(() => {
+  //     setCounter((prevCounter) => {
+  //       return {
+  //         ...prevCounter,
+  //         minutes:
+  //           prevCounter.seconds === 59
+  //             ? prevCounter.minutes + 1
+  //             : prevCounter.minutes,
+  //         seconds: prevCounter.seconds < 59 ? prevCounter.seconds + 1 : 0,
+  //       };
+  //     });
+  //   }, 1000);
+  //   console.log(counter);
+  // }, [counter]);
 
   function renderDice() {
     const arr = [];
@@ -48,6 +65,7 @@ function App() {
       else newArr.push(renderDice()[i]);
     }
     setNumbers(newArr);
+    setRolls((prevRolls) => prevRolls + 1);
   }
 
   function holdDie(id) {
@@ -86,7 +104,7 @@ function App() {
         <button onClick={() => rollDice()}>
           {tenzies ? 'New game' : 'Roll'}
         </button>
-        <Score {...score} />
+        <Score counter={counter} rolls={rolls} />
       </main>
       <Credits />
     </div>
