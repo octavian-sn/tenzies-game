@@ -18,17 +18,34 @@ main {
   display: flex;
   flex-direction: column;
 }
+/* Header */
+h1 {
+  font-family: 'Karla';
+  font-size: 2.5rem;
+  margin-top: 2.7rem;
+  margin-bottom: -60px;
+  text-align: center;
+}
+p {
+  font-family: 'Inter';
+  font-size: 1.3rem;
+  width: 25rem;
+  margin: auto;
+  margin-bottom: -15px;
+  text-align: center;
+}
 /* Numbers window */
 .dice-container {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
   align-self: center;
   margin: auto;
-  gap: 36px;
+  gap: 30px;
+  margin-bottom: -14px;
 }
 .die {
-  height: 3.6rem;
-  width: 3.6rem;
+  height: 3.5rem;
+  width: 3.5rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 3.81277px;
   font-family: 'Karla';
@@ -47,12 +64,15 @@ button {
   line-height: 19px;
   text-align: center;
   color: #ffffff;
-  width: 12rem;
-  height: 4.5rem;
+  width: 10rem;
+  height: 3.5rem;
   margin: auto;
   background: #5035ff;
   box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
   border-radius: 10px;
   border: none;
   cursor: pointer;
+}
+button:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
