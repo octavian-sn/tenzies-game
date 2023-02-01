@@ -71,7 +71,7 @@ function App() {
   return (
     <div id="project">
       <main>
-        {tenzies && <Confetti />}
+        {tenzies && <Confetti numberOfPieces={300} />}
         <h1>Tenzies</h1>
         <p>
           Roll until all dice are the same. Click each die to freeze it at its
