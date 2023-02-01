@@ -26,6 +26,7 @@ h1 {
   margin-bottom: -60px;
   text-align: center;
 }
+/* Instructions */
 p {
   font-family: 'Inter';
   font-size: 1.3rem;
@@ -75,4 +76,16 @@ button {
 }
 button:active {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+/* Credits */
+.credits {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgb(255, 255, 255);
+  font-family: 'Inter', 'Karla', Arial, Helvetica, sans-serif;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Die from './components/Die';
 import uniqid from 'uniqid';
+import Credits from './components/Credits';
 
 function App() {
   const [numbers, setNumbers] = React.useState(renderDice());
@@ -60,6 +61,7 @@ function App() {
         <div className="dice-container">{dices}</div>
         <button onClick={() => rollDice()}>Roll</button>
       </main>
+      <Credits />
     </div>
   );
 }
