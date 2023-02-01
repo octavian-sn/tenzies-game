@@ -25,21 +25,21 @@ function App() {
     }
   }, [numbers]);
 
-  // React.useEffect(() => {
-  //   setTimeout(() => {
-  //     setCounter((prevCounter) => {
-  //       return {
-  //         ...prevCounter,
-  //         minutes:
-  //           prevCounter.seconds === 59
-  //             ? prevCounter.minutes + 1
-  //             : prevCounter.minutes,
-  //         seconds: prevCounter.seconds < 59 ? prevCounter.seconds + 1 : 0,
-  //       };
-  //     });
-  //   }, 1000);
-  //   console.log(counter);
-  // }, [counter]);
+  React.useEffect(() => {
+    !tenzies &&
+      setTimeout(() => {
+        setCounter((prevCounter) => {
+          return {
+            ...prevCounter,
+            minutes:
+              prevCounter.seconds === 59
+                ? prevCounter.minutes + 1
+                : prevCounter.minutes,
+            seconds: prevCounter.seconds < 59 ? prevCounter.seconds + 1 : 0,
+          };
+        });
+      }, 1000);
+  }, [counter]);
 
   function renderDice() {
     const arr = [];
