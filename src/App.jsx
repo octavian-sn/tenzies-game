@@ -3,10 +3,15 @@ import Die from './components/Die';
 import uniqid from 'uniqid';
 import Credits from './components/Credits';
 import Confetti from 'react-confetti';
+import Score from './components/Score';
 
 function App() {
   const [numbers, setNumbers] = React.useState(renderDice());
   const [tenzies, setTenzies] = React.useState(false);
+  const [score, setScore] = React.useState({
+    rolls: 0,
+    time: '00:00:00',
+  });
 
   React.useEffect(() => {
     const winConditionOne = numbers.every((number) => number.isHeld === true);
@@ -81,6 +86,7 @@ function App() {
         <button onClick={() => rollDice()}>
           {tenzies ? 'New game' : 'Roll'}
         </button>
+        <Score {...score} />
       </main>
       <Credits />
     </div>

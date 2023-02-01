@@ -10,21 +10,24 @@ body {
 }
 main {
   background-color: #f5f5f5;
-  height: 32rem;
+  height: 40rem;
   width: 32rem;
   margin: auto;
-  margin-top: 25px;
+  margin-top: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 /* Header */
 h1 {
   font-family: 'Karla';
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-top: 2.7rem;
   margin-bottom: -60px;
   text-align: center;
+  color: #4cc77d;
+  text-shadow: 1px 1px 2px black;
 }
 /* Instructions */
 p {
@@ -137,10 +140,56 @@ button {
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 button:active {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
+
+/* Scoreboard */
+.score {
+  height: 160px;
+  display: grid;
+  grid-template-columns: 190px 220px;
+}
+.score--titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  font-family: 'Karla';
+  gap: 40px;
+  color: #5035ff;
+  margin-right: 10px;
+}
+.score--time {
+  font-family: 'Inter';
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding-top: 10px;
+  margin: auto;
+}
+.title {
+  font-family: 'Karla';
+  color: rgba(0, 0, 0, 0.295);
+}
+.result {
+  border-radius: 5px;
+  background-color: #5035ff;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  width: 220px;
+  text-align: center;
+}
+.score--titles div:last-child {
+  color: #4cc77d;
+}
+.score--time div:last-child {
+  background-color: #4cc77d;
+}
+
 /* Credits */
 .credits {
   margin-top: 15px;
