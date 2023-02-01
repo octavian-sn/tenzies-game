@@ -15,17 +15,6 @@ function App() {
   });
 
   React.useEffect(() => {
-    const winConditionOne = numbers.every((number) => number.isHeld === true);
-    const winConditionTwo = numbers.every(
-      (number) => number.value === numbers[0].value
-    );
-    if (winConditionOne && winConditionTwo) {
-      setTenzies(true);
-      console.log('you won');
-    }
-  }, [numbers]);
-
-  React.useEffect(() => {
     !tenzies &&
       setTimeout(() => {
         setCounter((prevCounter) => {
@@ -40,6 +29,17 @@ function App() {
         });
       }, 1000);
   }, [counter]);
+
+  React.useEffect(() => {
+    const winConditionOne = numbers.every((number) => number.isHeld === true);
+    const winConditionTwo = numbers.every(
+      (number) => number.value === numbers[0].value
+    );
+    if (winConditionOne && winConditionTwo) {
+      setTenzies(true);
+      console.log('you won');
+    }
+  }, [numbers]);
 
   function renderDice() {
     const arr = [];
@@ -57,6 +57,8 @@ function App() {
     if (tenzies) {
       setTenzies(false);
       setNumbers(renderDice());
+      setCounter({ minutes: 0, seconds: 0 });
+      setRolls(0);
       return;
     }
     const newArr = [];
