@@ -9,7 +9,7 @@ function Score(props) {
       </div>
       <div className="score--time">
         <div className="result">{`${props.counter.minutes}:${props.counter.seconds} / ${props.rolls}`}</div>
-        <div className="result">{`0:0 / 0`}</div>
+        <div className="result">{`${props.bestScore.minutes}:${props.bestScore.seconds} / ${props.bestScore.rolls}`}</div>
       </div>
     </div>
   );

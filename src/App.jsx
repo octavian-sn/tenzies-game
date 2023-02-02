@@ -13,6 +13,13 @@ function App() {
     minutes: 0,
     seconds: 0,
   });
+  const [bestScore, setBestScore] = React.useState(
+    JSON.parse(localStorage.getItem('bestScore')) || {
+      minutes: 0,
+      seconds: 0,
+      rolls: 0,
+    }
+  );
 
   React.useEffect(() => {
     !tenzies &&
@@ -36,10 +43,30 @@ function App() {
       (number) => number.value === numbers[0].value
     );
     if (winConditionOne && winConditionTwo) {
+      updateBestScore();
       setTenzies(true);
-      console.log('you won');
     }
   }, [numbers]);
+
+  function updateBestScore() {
+    const currentTime = counter.minutes.toString() + counter.seconds;
+    const bestTime = bestScore.minutes.toString() + bestScore.seconds;
+
+    if (rolls < bestScore.rolls || bestScore.rolls === 0) {
+      setBestScore((prevBestScore) => ({
+        ...prevBestScore,
+        rolls: rolls,
+      }));
+    }
+    if (currentTime < bestTime || bestTime === '00') {
+      setBestScore((prevBestScore) => ({
+        ...prevBestScore,
+        minutes: counter.minutes,
+        seconds: counter.seconds,
+      }));
+    }
+    localStorage.setItem('bestScore', JSON.stringify(bestScore));
+  }
 
   function renderDice() {
     const arr = [];
@@ -106,7 +133,7 @@ function App() {
         <button onClick={() => rollDice()}>
           {tenzies ? 'New game' : 'Roll'}
         </button>
-        <Score counter={counter} rolls={rolls} />
+        <Score counter={counter} rolls={rolls} bestScore={bestScore} />
       </main>
       <Credits />
     </div>
